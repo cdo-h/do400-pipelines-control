@@ -1,12 +1,14 @@
-NODE('NODEJS') {
- STAGE('cHECKOUT') {
- GIT BRANCH: 'MAIN',
- URL: 'HTTPS://GITHUB.COM/your_github_user/DO400-PIPELINES-CONTROL'
+node('nodejs') {
+stage('Checkout') {
+ git branch: 'main',
+ url: 'https://github.com/YOUR_GITHUB_USER/do400-pipelines-control'
  }
- STAGE('bACKEND tESTS') {
- SH 'NODE ./BACKEND/TEST.JS'
+ stage('Backend Tests') {
+ sh 'node ./backend/test.js'
  }
- STAGE('fRONTEND tESTS') {SH 'NODE ./FRONTEND/TEST.JS'
+ stage('Frontend Tests') {
+sh 'node ./frontend/test.js'
  }
 }
+
 
